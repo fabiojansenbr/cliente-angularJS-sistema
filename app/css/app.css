@@ -44,13 +44,83 @@ h2 {
 }
 
 
-.nav > nav-side {
-  position: absolute;
-  width: 258px;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 999;
+.nav-side-fixed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 240px;
+    z-index: 4;
+}
+
+.nav-header {
+    margin-top: 25px;
+}
+
+.logo {
+  font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-weight: 500;
+  font-size: 72px;
+  color: #dadada;
+}
+
+.logo > h3 {
+  font-size: 14px;
+  font-weight: 300;
+  margin: -10px 0px 75px;
+  color: #dadada;
+}
+
+.nav > li {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: block;
+}
+
+.nav > li > a {
+    color: #dadada;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color .15s, background .15s;
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    background-color: #292e42;
+    color: #fff;
+}
+
+.panel-default>.panel-heading {
+    background-color: #1f2333;
+    color: #dadada;
+    border-radius: 0;
+}
+
+.panel-title> a:hover,
+.panel-title> a:focus {
+    text-decoration: none;
+}
+
+.panel-default>.panel-heading:hover,
+.panel-default>.panel-heading:focus,
+.panel-default>.panel-heading:active {
+  box-shadow: 3px 0 0 #ef494f inset;
+}
+
+.active{
+    box-shadow: 3px 0 0 #ef494f inset;
+}
+
+.panel-default > .panel-heading+ .panel-collapse > .panel-body {
+    border-top: 0;
+    background-color: #1f2333;
+    border-radius: 0;
+    padding: 0;
+}
+
+.panel-default {
+  border: none;
 }
 
 .content {
@@ -61,7 +131,6 @@ h2 {
 
 .panel {
     margin-bottom: 20px;
-    border-bottom: 1px solid:
     border-radius: 4px;
     background-color: #fff;
 }

@@ -1,1 +1,1 @@
-angular.module("sistema", ["ngRoute", "ui.bootstrap"]);
+angular.module("sistema", ["ngRoute", "ui.bootstrap","ngAnimate"]);
