@@ -1,0 +1,153 @@
+html,
+body {
+    background-color: #262938;
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 300;
+    color: #3e4855;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #656565;
+    margin-top: 5px;
+    text-shadow: none;
+    font-weight: normal;
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+.headline {
+  display: block;
+  margin: 8px 0px 18px;
+  border-bottom: 1px solid #E4E9F0;
+}
+
+.headline h2 {
+    margin: 0px 0px -2px;
+    padding-bottom: 5px;
+    display: inline-block;
+    border-bottom: 2px solid #30b572;
+}
+
+
+.nav > nav-side {
+  position: absolute;
+  width: 258px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.content {
+  background-color: #313340;
+  margin-left: 240px;
+  min-height: 100vh;
+}
+
+.panel {
+    margin-bottom: 20px;
+    border-bottom: 1px solid:
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.panel-body {
+    padding: 15px 20px;
+    position: relative;
+}
+
+.btn-primary {
+  background: #ef494f;
+  border-color: #ef494f;
+  border-radius: 0;
+}
+
+.btn-primary-lg, a.btn-primary-lg {
+  font-size: 18px;
+  padding: 10px 66px;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 0;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary:active:focus{
+  color: #fff;
+  background: #d84147;
+  border-color: #d84147;
+  border-radius: 0;
+}
+
+
+.table>tbody>tr>td {
+  color: #918D99;
+  font-weight: 400;
+}
+
+.table>thead>tr>th {
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.table>thead>tr>th, .table>tbody>tr>td{
+  border-color: rgba(158,173,195,.16);
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.table-bordered, .form-control {
+    border: 1px solid rgba(158,173,195,.16);
+}
+
+.table-striped>tbody>tr:nth-of-type(even) {
+  background: #fefeff;
+}
+.table-striped>tbody>tr:nth-of-type(odd) {
+  background-color: #fff;
+}
+
+.next > a::after {
+  content: ' >'
+}
+
+.previous > a::before {
+  content: '< '
+}
+
+.table-info {
+  padding-top: 8px;
+}
+
+.pagination {
+  margin: 0;
+}
+
+.pagination > .active > a, .pagination > .active > a:hover {
+  color: #fff;
+  border-color: #d84147;
+  background-color:  #ef494f;
+}
+
+.input-group-addon {
+  color: #fff;
+  border: 1px solid #d84147;
+  background-color:  #ef494f;
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+  cursor: pointer;
+}
