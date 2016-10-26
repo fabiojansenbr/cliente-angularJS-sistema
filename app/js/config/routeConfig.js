@@ -8,10 +8,19 @@ angular.module("sistema").config(function ($routeProvider){
         }
       }
   });
-
   $routeProvider.when("/newCustomer", {
       templateUrl: "view/customer/new.html",
       controller: "newCustomerController"
+  });
+
+  $routeProvider.when("/customer/:id/details", {
+      templateUrl: "view/customer/details.html",
+      controller: "editCustomerController",
+      resolve: {
+        customer: function (customerAPI, $route) {
+          return customerAPI.getCustomerById($route.current.params.id);
+        }
+      }
   });
 
 

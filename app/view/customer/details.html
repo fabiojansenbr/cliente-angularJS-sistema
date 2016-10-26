@@ -1,0 +1,129 @@
+<div class="container-fluid">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="headline">
+                <h2>Detalhes do cliente</h2>
+            </div>
+            <div class="container">
+                <form class="form-horizontal">
+                    <dl class="dl-horizontal" ng-if="!editMode">
+                        <div class="form-group">
+                            <dt>Código</dt>
+                            <dd>{{customer.id}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Razão Social</dt>
+                            <dd>{{customer.name}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt class="col-sm-3">CNPJ</dt>
+                            <dd>{{customer.cnpj | cnpj}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Inscrição Municipal</dt>
+                            <dd>{{customer.registration}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Telefones</dt>
+                            <dd ng-repeat="phone in customer.phones">{{phone.number | phone}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Endereço</dt>
+                            <dd>{{customer.address.street}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Bairro</dt>
+                            <dd>{{customer.address.neighborhood}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Cidade</dt>
+                            <dd>{{customer.address.city}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Estado</dt>
+                            <dd>{{customer.address.state}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>CEP</dt>
+                            <dd>{{customer.address.cep | cep}}</dd>
+                        </div>
+                    </dl>
+                    <div ng-if="editMode">
+                        <div class="form-group">
+                            <label for="customer-id" class="col-sm-3 control-label">Código</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-id" class="form-control" ng-model="customer.id" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-name" class="col-sm-3 control-label">Razão Social</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-name" class="form-control" ng-model="customer.name" placeholder="Razão Social" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-cnpj" class="col-sm-3 control-label">CNPJ</label>
+                            <div class="col-sm-6">
+                                <input type="text" if="customer-cnpj" class="form-control" ng-model="customer.cnpj" ui-cnpj placeholder="CNPJ" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-registration" class="col-sm-3 control-label">Inscrição Municipal</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-registration" class="form-control" ng-model="customer.registration" placeholder="Inscrição Municipal" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-phone" class="col-sm-3 control-label">Telefone</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-phone" class="form-control" ng-model="customer.phones[0].number" ui-phone placeholder="Telefone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-street" class="col-sm-3 control-label">Endereço</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-street" class="form-control" ng-model="customer.address.street" placeholder="Endereço" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-neighborhood" class="col-sm-3 control-label">Bairro</label>
+                            <div class="col-sm-6">
+                                <input type="text" if="customer-neighborhood" class="form-control" ng-model="customer.address.neighborhood" placeholder="Bairro" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-city" class="col-sm-3 control-label">Cidade</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-city" class="form-control" ng-model="customer.address.city" placeholder="Cidade" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-state" class="col-sm-3 control-label">Estado</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-state" class="form-control" ng-model="customer.address.state" placeholder="Estado" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="customer-cep" class="col-sm-3 control-label">CEP</label>
+                            <div class="col-sm-6">
+                                <input type="text" id="customer-cep" class="form-control" ng-model="customer.address.cep" ui-cep placeholder="CEP" required>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="form-group col-sm-offset-7" ng-hide="editMode">
+
+                            <button class="btn btn-blue" ng-click="enableEdit()">Editar</button>
+                            <button class="btn btn-primary" ng-click="deleteCustomer(customer.id)">Excluir</button>
+
+                </div>
+                <div class="form-group col-sm-offset-7" ng-show="editMode">
+
+                            <button class="btn btn-primary" ng-click="cancelEdit()">Cancelar</button>
+                            <button class="btn btn-green" ng-click="updateCustomer(customer)">Atualizar</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

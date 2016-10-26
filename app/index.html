@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="sistema">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +18,9 @@
     <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-2.2.0.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers/customer/customerController.js"></script>
+    <script type="text/javascript" src="js/controllers/customer/editCustomerController.js"></script>
     <script type="text/javascript" src="js/controllers/customer/newCustomerController.js"></script>
-        <script type="text/javascript" src="js/controllers/navController.js"></script>
+    <script type="text/javascript" src="js/controllers/navController.js"></script>
     <script type="text/javascript" src="js/services/customerAPIService.js"></script>
     <script type="text/javascript" src="js/controllers/quoteController.js"></script>
     <script type="text/javascript" src="js/services/quoteAPIService.js"></script>
@@ -29,34 +31,49 @@
     <script type="text/javascript" src="js/interceptors/loadingInterceptor.js"></script>
     <script type="text/javascript" src="js/config/interceptorsConfig.js"></script>
     <title>Sistema Gerenciador de Orçamentos</title>
-  </head>
-  <body>
-    <nav class="nav-side-fixed" ng-controller="navController">
-      <div class="nav-header">
-          <div class="logo text-center">
-              <div>SisOS</div>
-              <h3>Sistema de Gerenciamento de OS</h3>
-          </div>
-      </div>
+</head>
 
-      <uib-accordion close-others="oneAtATime">
-          <div uib-accordion-group class="panel-default" is-open="status.open">
-            <uib-accordion-heading>
-               Clientes<span class="pull-right fa" ng-class="{'fa-chevron-down': status.open, 'fa-chevron-right': !status.open}"></span>
-            </uib-accordion-heading>
-            <ul class="nav">
-              <li><a href="#/newCustomer">Novo cliente</a></li>
-            </ul>
-            <ul class="nav">
-              <li><a href="#/customer">Lista de clientes</a></li>
-            </ul>
-          </div>
-      </uib-accordion>
+<body>
+    <nav class="nav-side-fixed" ng-controller="navController">
+        <div class="nav-header">
+            <div class="logo text-center">
+                <div>SisOS</div>
+                <h3>Sistema de Gerenciamento de OS</h3>
+            </div>
+        </div>
+        <ul class="nav">
+            <li><a href="#">Dashboard</a></li>
+        </ul>
+        <uib-accordion close-others="oneAtATime">
+            <div uib-accordion-group class="panel-default" is-open="status.isCustomerOpen">
+                <uib-accordion-heading>
+                    Clientes<span class="pull-right icon-min fa" ng-class="{'fa-chevron-down': status.isCustomerOpen, 'fa-chevron-right': !status.isCustomerOpen}"></span>
+                </uib-accordion-heading>
+                <div class="accordion-in">
+                    <ul class="nav">
+                        <li><a href="#/newCustomer">Novo cliente</a></li>
+                        <li><a href="#/customer">Lista de clientes</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div uib-accordion-group class="panel-default" is-open="status.isQuoteOpen">
+                <uib-accordion-heading>
+                    Orçamento<span class="pull-right icon-min fa" ng-class="{'fa-chevron-down': status.isQuoteOpen, 'fa-chevron-right': !status.isQuoteOpen}"></span>
+                </uib-accordion-heading>
+                <div class="accordion-in">
+                    <ul class="nav">
+                        <li><a href="#">Novo orçamento</a></li>
+                        <li><a href="#/quote">Lista de orçamentos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </uib-accordion>
     </nav>
     <div class="content">
         <div ng-view></div>
     </div>
-  </body>
-  <script type="text/javascript" src="lib/jquery/jquery-2.2.3.min.js"></script>
-  <script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+<script type="text/javascript" src="lib/jquery/jquery-2.2.3.min.js"></script>
+<script type="text/javascript" src="lib/bootstrap/js/bootstrap.min.js"></script>
+
 </html>
