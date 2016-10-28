@@ -1,5 +1,5 @@
 angular.module("sistema").controller("editCustomerController", function($scope, customerAPI, customer, $location) {
-    $scope.customer = customer.data;
+    $scope.customer = angular.copy(customer.data);
     $scope.editMode = false;
 
     $scope.deleteCustomer = function(id) {
@@ -10,7 +10,7 @@ angular.module("sistema").controller("editCustomerController", function($scope, 
 
     $scope.updateCustomer = function(customer) {
         customerAPI.updateCustomer(customer).success(function(data) {
-            $location.path("/customer");
+            $scope.editMode = false;
         });
     }
 
@@ -20,6 +20,7 @@ angular.module("sistema").controller("editCustomerController", function($scope, 
 
     $scope.cancelEdit = function() {
         $scope.editMode = false;
+        $scope.customer = angular.copy(customer.data);
     }
 
 });

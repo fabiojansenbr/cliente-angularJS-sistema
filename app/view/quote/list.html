@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="headline">
+                <h2>Lista de orçamentos</h2>
+            </div>
+            <div class="container">
+                <div ng-show="loading" class="text-center">
+                    <span class="fa fa-spinner fa-pulse fa-3x fa-fw"></span>
+                </div>
+                <div ng-hide="loading">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <select ng-model="itemsPerPage" class="form-control" ng-options="option.value as option.name for option in valueOptions" style="width: 70px;"></select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-search"></span></span>
+                                <input type="search" class="form-control" placeholder="Pesquisar orçamento" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-condensed table-bordered" ng-show="quotes.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Serviço para</th>
+                            <th>Descrição</th>
+                            <th>Data</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tr ng-repeat="quote in filteredQuotes" track by quote.id>
+                        <td>{{ ::quote.id }}</td>
+                        <td><a href="#/quote/{{quote.id}}/details">{{ ::quote.serviceTo }}</a></td>
+                        <td>{{ ::quote.serviceDescription }}</td>
+                        <td>{{ ::quote.date | date :  "dd/MM/yyyy"}}</td>
+                        <td>{{ ::quote.total | currency }}</td>
+                    </tr>
+                </table>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="table-info">Mostrando {{filteredQuotes.length}} de {{quotes.length}} registros</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="pull-right">
+                            <ul uib-pagination total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" max-size="maxSize" class="pagination-sm" data-previous-text="Anterior" data-next-text="Próximo" rotate="false"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

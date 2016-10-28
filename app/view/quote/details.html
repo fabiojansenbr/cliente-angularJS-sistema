@@ -1,0 +1,139 @@
+<div class="container-fluid">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="headline">
+                <h2>Detalhes do orçamento</h2>
+            </div>
+            <div class="container">
+                <form class="form-horizontal">
+                    <dl class="dl-horizontal" ng-if="!editMode">
+                        <div class="form-group">
+                            <dt>Código</dt>
+                            <dd>{{quote.id}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Tomador</dt>
+                            <dd>{{quote.serviceTo}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Descrição do serviço</dt>
+                            <dd>{{quote.serviceDescription}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <dt>Data</dt>
+                            <dd>{{quote.date | date : "dd/MM/yyyy"}}</dd>
+                        </div>
+                        <div class="form-group">
+                            <table class="table table-condensed table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="fit">Quantidade</th>
+                                        <th>Descrição</th>
+                                        <th class="fit">Preço</th>
+                                        <th class="fit">Total</th>
+                                    </tr>
+                                </thead>
+                                <tr ng-repeat="item in quote.items">
+                                    <td>{{::item.quantity}}</td>
+                                    <td>{{::item.description}}</td>
+                                    <td>{{::item.price | currency }}</td>
+                                    <td>{{::item.total | currency }}</td>
+                                </tr>
+                                <tfoot>
+                                    <tr align="right">
+                                        <td colspan="3"><b>Total:</b></td>
+                                        <td> {{quote.total | currency}}</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>
+                    </dl>
+                </form>
+                <div ng-if="editMode">
+                    <form name="quoteForm" class="form-horizontal">
+                    <div class="form-group">
+                            <label for="quote-id" class="col-sm-2 control-label">Código</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="quote-id" class="form-control" ng-model="quote.id" placeholder="Código" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-for" class="col-sm-2 control-label">Tomador</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="service-for" class="form-control" ng-model="quote.serviceTo" placeholder="Tomador">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="service-description" class="col-sm-2 control-label">Descrição do serviço</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="service-description" class="form-control" ng-model="quote.serviceDescription" placeholder="Descrição do serviço">
+                            </div>
+                        </div>
+                         <div class="form-group">
+                            <label for="quote-date" class="col-sm-2 control-label">Data</label>
+                            <div class="col-sm-7">
+                                <input type="text" id="quote-date" class="form-control" ng-model="quote.date" placeholder="Data" ui-date>
+                            </div>
+                        </div>
+                    </form>
+                    <hr/>
+                    <div class="form-group">
+                        <table class="table table-condensed table-bordered">
+                            <thead>
+                                <tr>
+                                    <th class="fit">Quantidade</th>
+                                    <th>Descrição</th>
+                                    <th class="fit">Preço</th>
+                                    <th class="fit">Total</th>
+                                    <th class="fit">Remover</th>
+                                </tr>
+                            </thead>
+                            <tr ng-repeat="item in quote.items">
+                                <td>{{item.quantity}}</td>
+                                <td>{{item.description}}</td>
+                                <td>{{item.price | currency }}</td>
+                                <td>{{item.total | currency }}</td>
+                                <td>
+                                    <a href="" ng-click="removeItem(item)"> <span style="color: #C33737;" class="fa fa-times"></span></a>
+                                </td>
+                            </tr>
+                            <tfoot>
+                                <tr align="right">
+                                    <td colspan="4"><b>Total:</b></td>
+                                    <td> {{quote.total | currency}}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <fieldset class="form-group">
+                        <legend>Inserir items</legend>
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <input type="number" name="item-quantity" class="form-control col-sm-2" ng-model="item.quantity" placeholder="Quantidade">
+                            </div>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" ng-model="item.description" placeholder="Descrição"></textarea>
+                            </div>
+                            <div class="col-sm-2">
+                                <input type="number" class="form-control" ng-model="item.price" placeholder="Preço">
+                            </div>
+
+                            <div class="col-sm-2">
+                                <button class="btn btn-green" ng-click="addItem(item)"><span class="fa fa-plus"></span> Adicionar </button>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <hr/>
+                </div>
+                <div class="form-group pull-right" ng-hide="editMode">
+                    <button class="btn btn-blue" ng-click="enableEdit()"><span class="fa fa-pencil-square-o"> Editar </span></button>
+                    <button class="btn btn-primary" ng-click="deleteQuote(quote.id)"><span class="fa fa-trash-o"> Excluir </span></button>
+                </div>
+                <div class="form-group pull-right" ng-show="editMode">
+                    <button class="btn btn-primary" ng-click="cancelEdit()"><span class="fa fa-times-circle-o"> Cancelar </span></button>
+                    <button class="btn btn-green" ng-click="updateQuote(quote)"><span class="fa fa-refresh"> Atualizar </span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -301,6 +301,11 @@ a.btn-primary-lg {
     margin-bottom: 7.5px;
 }
 
+dl.inline dd {
+  display: inline;
+  margin: 0;
+}
+
 @media (min-width: 768px) {
     .dl-horizontal dt {
         float: left;
@@ -323,4 +328,10 @@ a.btn-primary-lg {
 
 .form-horizontal .control-label:after {
   content: ':';
+}
+
+.table td.fit,
+.table th.fit {
+    white-space: nowrap;
+    width: 2%;
 }
