@@ -16,6 +16,8 @@
     <script type="text/javascript" src="lib/filesaver/FileSaver.min.js"></script>
     <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-2.2.0.min.js"></script>
     <script type="text/javascript" src="lib/ui-bootstrap/ui-bootstrap-tpls-2.2.0.min.js"></script>
+    <script type="text/javascript" src="lib/chartjs/Chart.min.js"></script>
+    <script type="text/javascript" src="lib/angular-chart/angular-chart.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
     <script type="text/javascript" src="js/controllers/customer/customerController.js"></script>
     <script type="text/javascript" src="js/controllers/customer/editCustomerController.js"></script>
@@ -25,6 +27,7 @@
     <script type="text/javascript" src="js/controllers/quote/quoteController.js"></script>
     <script type="text/javascript" src="js/controllers/quote/newQuoteController.js"></script>
     <script type="text/javascript" src="js/controllers/quote/editQuoteController.js"></script>
+    <script type="text/javascript" src="js/controllers/dashboard/dashboardController.js"></script>
     <script type="text/javascript" src="js/services/quoteAPIService.js"></script>
     <script type="text/javascript" src="js/config/routeConfig.js"></script>
     <script type="text/javascript" src="js/value/configValue.js"></script>
@@ -44,7 +47,7 @@
             </div>
         </div>
         <ul class="nav">
-            <li><a href="#">Dashboard</a></li>
+            <li><a href="#/dashboard">Dashboard</a></li>
         </ul>
         <uib-accordion close-others="oneAtATime">
             <div uib-accordion-group class="panel-default" is-open="status.isCustomerOpen">

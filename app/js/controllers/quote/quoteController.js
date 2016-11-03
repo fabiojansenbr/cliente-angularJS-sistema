@@ -1,4 +1,4 @@
-angular.module("sistema").controller("quoteController", function($scope, quotes, $filter) {
+angular.module("sistema").controller("quoteController", function($scope, quotes, $filter, quoteAPI) {
     $scope.quotes = $filter('orderBy')(quotes.data, 'id');
     $scope.maxSize = 5;
     $scope.totalItems = quotes.data.length;
@@ -16,4 +16,13 @@ angular.module("sistema").controller("quoteController", function($scope, quotes,
             end = begin + parseFloat($scope.itemsPerPage);
         $scope.filteredQuotes = $scope.quotes.slice(begin, end);
     });
+
+
+    $scope.downloadPdf = function(id) {
+        quoteAPI.downloadPdf(id).success(function(data) {
+            var file = new Blob([data], { type: 'application/pdf' });
+            saveAs(file, "orcamento.pdf");
+        });
+    }
+
 });

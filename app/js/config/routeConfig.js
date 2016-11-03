@@ -1,4 +1,14 @@
 angular.module("sistema").config(function($routeProvider) {
+    $routeProvider.when("/dashboard", {
+        templateUrl: "view/dashboard/index.html",
+        controller: "dashboardController",
+        resolve: {
+            quotes: function(quoteAPI) {
+                return quoteAPI.getQuotes();
+            }
+        }
+    });
+
     $routeProvider.when("/customer", {
         templateUrl: "view/customer/list.html",
         controller: "customerController",
@@ -49,5 +59,5 @@ angular.module("sistema").config(function($routeProvider) {
     });
 
 
-    $routeProvider.otherwise({ redirectTo: "/" });
+    $routeProvider.otherwise({ redirectTo: "/dashboard" });
 });

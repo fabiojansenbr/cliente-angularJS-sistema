@@ -1,0 +1,120 @@
+<div class="container-fluid">
+    <div clas="row">
+        <div class="col-md-3">
+            <a class="dashboard-stat dashboard-stat-icon  red" href="#">
+                <div class="visual">
+                    <i class="fa fa-comments"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="1349">1349</span>
+                    </div>
+                    <div class="desc"> Total de Orçamentos </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="dashboard-stat dashboard-stat-icon green" href="#">
+                <div class="visual">
+                    <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="1349">R$ 1.349,00</span>
+                    </div>
+                    <div class="desc"> Orçamentos Aprovados </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="dashboard-stat dashboard-stat-icon blue" href="#">
+                <div class="visual">
+                    <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="1349">1349</span>
+                    </div>
+                    <div class="desc"> Total de Orçamentos Aprovados</div>
+                </div>
+            </a>
+        </div>
+        <div class="col-md-3">
+            <a class="dashboard-stat dashboard-stat-icon orange" href="#">
+                <div class="visual">
+                    <i class="fa fa-bar-chart-o"></i>
+                </div>
+                <div class="details">
+                    <div class="number">
+                        <span data-counter="counterup" data-value="1349">1349</span>
+                    </div>
+                    <div class="desc"> Total de Aprovados</div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="headline">
+                        <h2>Orçamentos Realizados</h2>
+                        <span class="title-desc">aprovados e rejeitados</span>
+                    </div>
+                    <canvas id="line" class="chart chart-line" chart-data="dataLine" chart-labels="labelsLine" chart-series="seriesLine" chart-options="optionsLine" chart-dataset-override="datasetOverrideLine"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="headline">
+                        <h2>Valor Orçamentos</h2>
+                        <span class="title-desc">aprovados no mês</span>
+                    </div>
+                    <canvas id="bar" class="chart chart-bar" chart-data="dataBar" chart-labels="labelsBar"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="headline">
+                        <h2>Title</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="panel">
+                <div class="panel-body">
+                    <div class="headline">
+                        <h2>Ação Rapida</h2></div>
+                    <div class="container-fluid">
+                        <div class="ct-actions">
+                            <div class="ct-action">
+                                <div ng-repeat="quote in quotes" class="ct-action-row">
+                                    <div class="ct-action-info">
+                                        <dl>
+                                            <dt>{{quote.serviceTo}}</dt>
+                                            <dd>{{quote.serviceDescription}}</dd>
+                                        </dl>
+                                    </div>
+                                    <div class="ct-action-datetime">{{quote.date | date : "dd MMM "}}</div>
+                                    <div class="ct-action-buttons">
+                                        <div class="btn-group btn-group-sm">
+                                            <button type="button" class="btn btn-green">Aprovar</button>
+                                            <button type="button" class="btn btn-primary">Rejeitar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -44,20 +44,4 @@ angular.module("sistema").controller("newQuoteController", function($scope, quot
         });
     }
 
-/*
-    $scope.deleteQuote = function(id) {
-        quoteAPI.deleteQuote(id).success(function(data) {
-            
-        });
-    }
-
-    $scope.downloadPdf = function(id) {
-        quoteAPI.downloadPdf(id).success(function(data) {
-            var file = new Blob([data], { type: 'application/pdf' });
-            saveAs(file, "orcamento.pdf");
-        });
-    }
-    */
-
-
 });
